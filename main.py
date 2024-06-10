@@ -1,6 +1,6 @@
 import streamlit as st 
 import pandas as pd 
-from sklearn import datasets
+from sklearn.datasets import load_iris
 from sklearn.ensemble import RandomForestClassifier
 
 st.write("""
@@ -26,12 +26,12 @@ df = user_input_features()
 
 st.subheader("User Input Parameters")
 st.write(df)
-iris=datasets.load_iris()
+iris=load_iris()
 X=iris.data
-Y=iris.target
+y=iris.target
 
 clf=RandomForestClassifier()
-clf.fit(X,Y)
+clf.fit(X,y)
 
 prediction=clf.predict(df)
 prediction_proba=clf.predict_proba(df)
